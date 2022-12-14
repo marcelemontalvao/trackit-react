@@ -53,6 +53,11 @@ export const FormRegisterPage = styled.form`
         padding-left: 11px;
     }
 
+    input:disabled {
+        background-color: #F2F2F2;
+        border: 1px solid #D5D5D5;
+    }
+
     button {
         width: 81.5%;
         height: 45px;
@@ -64,6 +69,11 @@ export const FormRegisterPage = styled.form`
         color: #FFFFFF;
         border: none;
         cursor: pointer;
+    }
+    
+    button:disabled {
+        background: #52B6FF;
+        opacity: 0.7;
     }
 
 `
