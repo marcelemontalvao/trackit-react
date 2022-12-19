@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useState } from "react"
 import logoTrackit from "../../../assets/logoTrackit.png"
 import { LoginPageContainer, FormLoginPage } from "./LoginPageStyles.js"
 import { api } from "../../../services/api"
@@ -10,7 +10,7 @@ const LoginPage = () => {
     const navigate = useNavigate()
     const [email, setEmail] = useState(undefined)
     const [password, setPassword] = useState(undefined)
-    const {setUserInfoContext} = useContext(UserInfoContext)
+    const { userInfoContext , setUserInfoContext} = useContext(UserInfoContext)
     const [disabled, setDisabled] = useState(false)
     const [loading, setLoading] = useState(false)
 
@@ -41,6 +41,8 @@ const LoginPage = () => {
         newUser()
     }
 
+    console.log(userInfoContext)
+
     if(loading) {
         return (
             <LoginPageContainer>
@@ -62,7 +64,7 @@ const LoginPage = () => {
                     </button>
                 </FormLoginPage>
                 <Link to="/cadastro">
-                    <a>Não tem uma conta? Cadastre-se!</a>
+                    <p>Não tem uma conta? Cadastre-se!</p>
                 </Link>
             </LoginPageContainer>
         )
@@ -76,7 +78,7 @@ const LoginPage = () => {
                     <button type="submit" disabled={disabled}>Entrar</button>
                 </FormLoginPage>
                 <Link to="/cadastro">
-                    <a>Não tem uma conta? Cadastre-se!</a>
+                    <p>Não tem uma conta? Cadastre-se!</p>
                 </Link>
             </LoginPageContainer>
         )

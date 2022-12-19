@@ -15,7 +15,7 @@ export const LoginPageContainer = styled.div`
         height: 180px;
     }
 
-    a {
+    p {
         margin-bottom: 7px;
         font-size: 14px;
         line-height: 17px;
