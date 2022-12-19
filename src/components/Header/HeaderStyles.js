@@ -6,6 +6,7 @@ export const HeaderStyles = styled.header`
     background-color: #126BA5;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     position: fixed;
+    z-index: 1;
 
     div {
         height: 100%;

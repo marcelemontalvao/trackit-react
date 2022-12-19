@@ -4,7 +4,7 @@ import UserInfoContext from './components/Contexts/UserInfoContext.jsx';
 import LoginPage from './components/pages/LoginPage/LoginPage.jsx';
 import RegisterPage from './components/pages/RegisterPage/RegisterPage.jsx';
 import TodayPage from './components/pages/TodayPage/TodayPage.jsx';
-import './AppStyles.js';
+import HabitsPage from './components/pages/HabitsPage/HabitsPage.jsx';
 
 function App() {
   const [userInfoContext, setUserInfoContext] = useState({})
@@ -14,7 +14,7 @@ function App() {
           <Routes>
             <Route path='/' element={<LoginPage />}/>
             <Route path='/cadastro' element={<RegisterPage/>}/>
-            {/* <Route path='/habitos' element={<HabitsPage />}/> */}
+            <Route path='/habitos' element={<HabitsPage />}/>
             <Route path='/hoje' element={<TodayPage />}/>
             {/* <Route path='/historico' element={<HistoryPage />}/> */}
           </Routes>

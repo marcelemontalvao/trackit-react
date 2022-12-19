@@ -10,7 +10,7 @@ const LoginPage = () => {
     const navigate = useNavigate()
     const [email, setEmail] = useState(undefined)
     const [password, setPassword] = useState(undefined)
-    const { userInfoContext , setUserInfoContext} = useContext(UserInfoContext)
+    const {setUserInfoContext} = useContext(UserInfoContext)
     const [disabled, setDisabled] = useState(false)
     const [loading, setLoading] = useState(false)
 
@@ -22,11 +22,10 @@ const LoginPage = () => {
             setDisabled(true)
             try {
                 const response = await api.post("auth/login", {email, password})
-                console.log(response);
                 if(response.status === 200) {
                     setLoading(false)
                     setDisabled(false)
-                    navigate("/hoje")
+                    navigate("/habitos")
                 }
                 setUserInfoContext({
                     userInfo: response.data
@@ -40,8 +39,6 @@ const LoginPage = () => {
         }
         newUser()
     }
-
-    console.log(userInfoContext)
 
     if(loading) {
         return (
