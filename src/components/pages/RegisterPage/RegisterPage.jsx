@@ -19,7 +19,6 @@ const RegisterPage = () => {
     const [disabled, setDisabled] = useState(false)
     const [loading, setLoading] = useState(false)
 
-
     useEffect(() => {
         setUserInfo({
             email: email,

@@ -13,7 +13,7 @@ const Footer = () => {
                 <Link to="/hoje">
                     <TodayDiv>
                         <CircularProgressbar
-                            percentage={0.66} 
+                            value={66} 
                             text="Hoje"
                             background
                             backgroundPadding={6}
