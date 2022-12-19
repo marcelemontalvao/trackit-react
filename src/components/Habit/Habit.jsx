@@ -5,13 +5,18 @@ import SelectedDaysContext from "../Contexts/SelectedDaysContext";
 import axios from "axios";
 import { ThreeDots } from  "react-loader-spinner"
 
-const Habit = () => {
+const Habit = ({habitOpen, setHabitOpen}) => {
     const [loading, setLoading] = useState(false)
     const [disabled, setDisabled] = useState(false)
     const {selectedDaysArray, setSelectedDaysArray} = useContext(SelectedDaysContext)
     const [name, setName] = useState("")
     const days = ["S", "T", "Q", "Q", "S", "S", "D"]
     const token = JSON.parse(localStorage.getItem("user")).token 
+
+    const handleHabitBtnCancel = () => {
+        setHabitOpen(false)
+    }
+
     const formSubmit = (e) => {
         e.preventDefault()
         const habitObj =  {
@@ -29,8 +34,14 @@ const Habit = () => {
             console.log(data)
             setLoading(false)
             setDisabled(false)
+            setHabitOpen(false)
+            setSelectedDaysArray([])
+            setName("")
+        }).catch((error) => {
+            alert(error)
+            setLoading(false)
+            setDisabled(false)
         })
-
     }
 
     if(loading) {
@@ -69,7 +80,7 @@ const Habit = () => {
                     </div>
                 </div>
                 <span>
-                    <button>Cancelar</button>
+                    <button onClick={handleHabitBtnCancel}>Cancelar</button>
                     <button type="submit">Salvar</button>
                 </span>
             </FormStyle>

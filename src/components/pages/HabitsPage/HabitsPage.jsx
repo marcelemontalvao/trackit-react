@@ -7,7 +7,7 @@ import { HabitsPageStyle, MyHabits } from "./HabitsPageStyles.js"
 const HabitsPage = () => {
     const [habitOpen, setHabitOpen] = useState(false)
     const handleHabitForm = () => {
-        setHabitOpen(!habitOpen)
+        setHabitOpen(true)
     }
     return (
         <>
@@ -17,7 +17,7 @@ const HabitsPage = () => {
                     <span>Meus hábitos</span>
                     <button onClick={handleHabitForm}>+</button>
                 </MyHabits>
-                {habitOpen ? <Habit /> : ""}
+                {habitOpen ? <Habit habitOpen={habitOpen} setHabitOpen={setHabitOpen} /> : ""}
                 <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>
             </HabitsPageStyle>
             <Footer/>
