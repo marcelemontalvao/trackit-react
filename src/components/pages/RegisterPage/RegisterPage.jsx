@@ -5,6 +5,8 @@ import  {   RegisterPageContainer,
         } from "./RegisterPageStyles.js"
 import { api } from "../../../services/api"
 import { Link, useNavigate } from "react-router-dom"
+import { ThreeDots } from  "react-loader-spinner"
+
 
 const RegisterPage = () => {
     const navigate = useNavigate()
@@ -65,7 +67,18 @@ const RegisterPage = () => {
                     <input onChange={(e) => setPassword(e.target.value)} type="password" name="password" id="password" placeholder="senha" required disabled={disabled} />
                     <input onChange={(e) => setName(e.target.value)}type="text" name="name" id="name" placeholder="nome" required disabled={disabled}/>
                     <input onChange={(e) => setImage(e.target.value)} type="text" name="photo" id="photo" placeholder="foto" required disabled={disabled} />
-                    <button type="submit" disabled={disabled}>Cadastrar</button>
+                    <button type="submit" disabled={disabled}>
+                        <ThreeDots 
+                            height="60" 
+                            width="60" 
+                            radius="9"
+                            color="#FFFFFF" 
+                            ariaLabel="three-dots-loading"
+                            wrapperStyle={{}}
+                            wrapperClassName=""
+                            visible={true}
+                        />
+                    </button>
                 </FormRegisterPage>
                 <Link to={"/"}>
                     <a>Já tem uma conta? Faça login!</a>

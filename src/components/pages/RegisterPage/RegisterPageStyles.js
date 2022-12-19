@@ -65,6 +65,9 @@ export const FormRegisterPage = styled.form`
         border-radius: 4px;
         font-size: 21px;
         line-height: 26px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         text-align: center;
         color: #FFFFFF;
         border: none;
