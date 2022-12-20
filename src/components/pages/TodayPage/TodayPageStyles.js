@@ -9,14 +9,25 @@ export const TodayPageStyle = styled.main`
     align-items: center;
     gap: 10px;
 
-    /* div {
+    h1 {
         width: 90%;
-        height: 94px;
-        background: #FFFFFF;
-        border-radius: 5px;    
-    } */
+        font-size: 23px;
+        line-height: 29px;
+        color: #126BA5;
+    }
 `
 
+export const TitleTodayPage = styled.div`
+    width: 90%;
+    margin-bottom: 28px;
+    
+    p {
+        margin-top: 3px;
+        font-size: 18px;
+        line-height: 22px;
+        color: #BABABA;
+    }
+`
 
 export const DayHabit = styled.div`
     width: 80%;
@@ -40,6 +51,7 @@ export const DayHabit = styled.div`
         color: #F2F2F2;
         border: 1px solid #F2F2F2;
         border-radius: 5px;
+        cursor: pointer;
     }
 
     & div span:nth-child(1) {
