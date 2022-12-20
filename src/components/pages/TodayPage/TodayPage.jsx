@@ -11,6 +11,36 @@ const TodayPage = () => {
     const token = JSON.parse(localStorage.getItem("user")).token 
     const [todayHabits, setTodayHabits] = useState([])
     const today = dayjs().locale("pt-br").format("dddd, DD/MM");
+    const [check, setCheck] = useState(false)
+    const [reload, setReload] = useState(false)
+
+    const toggleCheck = (habit) => {
+        if(check === true) {
+            axios.post(`https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${habit.id}/uncheck`, {}, {
+            headers: {
+                'Authorization': `Bearer ${token}` 
+            }
+            }).then((response) => {
+                console.log(response)
+                setCheck(false)
+                setReload(!reload)
+            }).catch((error) => {
+                alert(error)
+            })
+        } else {
+            axios.post(`https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${habit.id}/check`, {}, {
+            headers: {
+                'Authorization': `Bearer ${token}` 
+            }
+            }).then((response) => {
+                console.log(response)
+                setCheck(true)
+                setReload(!reload)
+            }).catch((error) => {
+                alert(error)
+            })
+        }
+    }
 
     useEffect(()=> {
         axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/today", {
@@ -23,7 +53,11 @@ const TodayPage = () => {
         }).catch((error) => {
             alert(error)
         })
-    }, [todayHabits])
+    }, [todayHabits, reload])
+
+    setTimeout(() => {
+       setReload(!reload) 
+    }, 50);
 
     return (
         <>
@@ -34,15 +68,13 @@ const TodayPage = () => {
                     <p>Nenhum hábito concluído ainda</p>
                 </TitleTodayPage>
                 {todayHabits.map((habit, index) => 
-                    <DayHabit key={index}>
+                    <DayHabit habitDone={habit.done} sequence={habit.currentSequence == habit.highestSequence} key={index}>
                         <div>
                             <span>{habit.name}</span>
-                            <span>
-                                <p>Sequência atual: {habit.currentSequence} dias</p>
-                                <p>Seu recorde: {habit.highestSequence} dias</p>
-                            </span> 
+                            <span><span>Sequência atual:</span> <span>{habit.currentSequence} dias</span> </span> 
+                            <span><span>Seu recorde:</span> <span>{habit.highestSequence} dias</span></span>
                         </div>
-                        <BsCheckSquareFill/>
+                        <BsCheckSquareFill onClick={() => toggleCheck(habit)} color={habit.done ? "#8FC549" : "#F2F2F2"}/>
                     </DayHabit>
                 )}
             </TodayPageStyle>

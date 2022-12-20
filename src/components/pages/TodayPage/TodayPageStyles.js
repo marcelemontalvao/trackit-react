@@ -20,7 +20,7 @@ export const TodayPageStyle = styled.main`
 export const TitleTodayPage = styled.div`
     width: 90%;
     margin-bottom: 28px;
-    
+
     p {
         margin-top: 3px;
         font-size: 18px;
@@ -48,7 +48,6 @@ export const DayHabit = styled.div`
     svg {
         width: 69px;
         height: 69px;
-        color: #F2F2F2;
         border: 1px solid #F2F2F2;
         border-radius: 5px;
         cursor: pointer;
@@ -60,9 +59,28 @@ export const DayHabit = styled.div`
         color: #666666;
     }
 
-    & div span:nth-child(2) p {
+    & div span:nth-child(2) span:nth-child(1) {
         font-size: 13px;
         line-height: 16px;
         color: #666666;
+    }
+
+    & div span:nth-child(2) span:nth-child(2) {
+        font-size: 13px;
+        line-height: 16px;
+        color: ${(props) => props.habitDone ? "#8FC549" : "#666666"};
+    }
+
+    & div span:nth-child(3) span{
+        font-size: 13px;
+        line-height: 16px;
+        color: #666666;
+    }
+
+
+    & div span:nth-child(3) span:nth-child(2) {
+        font-size: 13px;
+        line-height: 16px;
+        color: ${props => props.sequence ? "#8FC549" : "#666666"};
     }
 `
