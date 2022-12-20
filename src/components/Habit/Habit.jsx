@@ -21,23 +21,17 @@ const Habit = ({habit, habits, setHabits}) => {
             })
         }
     }
-
+    // console.log(habit.days)
     return (
         <HabitStyle>
             <div>
                 <span>{habit.name}</span>
                 <IoTrashOutline onClick={deleteHabit}/>
             </div>
-            {week.map((day, index)=> { 
-                habit.days.map((dayId) => {
-                    if(dayId === index) {
-                        return <button key={index} className="selected">{day}</button>
-                    } else {
-                        return <button key={index} className="notSelected">{day}</button>
-                    }
-                })
-            })}
-            
+            <div>
+                {week.map((day, index)=> <button key={index} className={habit.days.includes(index) ? "selected" : "notSelected"}>{day}</button> 
+                )}
+            </div>
         </HabitStyle>
     )
 }

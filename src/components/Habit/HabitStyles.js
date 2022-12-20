@@ -6,7 +6,8 @@ export const HabitStyle = styled.div`
     background-color: #FFFFFF;
     border-radius: 5px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     
     div {
         width: 90%;
@@ -44,5 +45,8 @@ export const HabitStyle = styled.div`
         background-color: #FFFFFF;
         border: 1px solid #D5D5D5;
         border-radius: 5px;
+        font-size: 20px;
+        line-height: 25px;
+        color: #DBDBDB;
     }
 `
