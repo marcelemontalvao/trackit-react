@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 export const HabitsPageStyle = styled.main`
     padding: 0 20px;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 28px;
     background-color: #f2f2f2;
+    padding-bottom: 120px;
 
     p {
         font-size: 18px;
@@ -39,4 +40,8 @@ export const MyHabits = styled.div`
         border-radius: 5px;
         border: none;
     }
+`
+
+export const Habits = styled.div`
+
 `
