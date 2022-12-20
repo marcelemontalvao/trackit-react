@@ -28,6 +28,7 @@ const TodayPage = () => {
                 setCheck(false)
                 setReload(!reload)
                 setCount(count--)
+                setProgressBar((count/todayHabits.length) *100)
             }).catch((error) => {
                 alert(error)
             })
@@ -41,6 +42,7 @@ const TodayPage = () => {
                 setCheck(true)
                 setReload(!reload)
                 setCount(count+1)
+                setProgressBar((count/todayHabits.length) *100)
             }).catch((error) => {
                 alert(error)
             })
