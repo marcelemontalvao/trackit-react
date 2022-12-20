@@ -28,7 +28,6 @@ const TodayPage = () => {
                 setCheck(false)
                 setReload(!reload)
                 setCount(count--)
-                setProgressBar((count/todayHabits.length) * 100)
             }).catch((error) => {
                 alert(error)
             })
@@ -41,8 +40,7 @@ const TodayPage = () => {
                 console.log(response)
                 setCheck(true)
                 setReload(!reload)
-                setCount(count++)
-                setProgressBar((count/todayHabits.length) * 100)
+                setCount(count+1)
             }).catch((error) => {
                 alert(error)
             })
@@ -61,7 +59,7 @@ const TodayPage = () => {
         }).catch((error) => {
             alert(error)
         })
-    }, [todayHabits, reload])
+    }, [todayHabits])
 
     setTimeout(() => {
        setReload(!reload) 
@@ -73,7 +71,7 @@ const TodayPage = () => {
             <TodayPageStyle>
                 <TitleTodayPage>
                     <h1>{today}</h1>
-                    <p>Nenhum hábito concluído ainda</p>
+                    {progressBar.length ? <span>{progressBar}% dos hábitos concluídos</span> : <p>Nenhum hábito concluído ainda</p>}
                 </TitleTodayPage>
                 {todayHabits.map((habit, index) => 
                     <DayHabit habitDone={habit.done} sequence={habit.currentSequence == habit.highestSequence} key={index}>
