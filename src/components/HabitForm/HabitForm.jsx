@@ -13,7 +13,8 @@ const HabitForm = ({habitOpen, setHabitOpen}) => {
     const days = ["D", "S", "T", "Q", "Q", "S", "S"]
     const token = JSON.parse(localStorage.getItem("user")).token 
 
-    const handleHabitBtnCancel = () => {
+    const handleHabitBtnCancel = (e) => {
+        e.preventDefault()
         setHabitOpen(false)
     }
 
@@ -25,13 +26,12 @@ const HabitForm = ({habitOpen, setHabitOpen}) => {
         }
         setLoading(true)
         setDisabled(true)
-        const response = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits", habitObj, {
+        axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits", habitObj, {
             headers: {
                 'Authorization': `Bearer ${token}` 
             }
         }).then((response) => {
             const data = response.data
-            console.log(data)
             setLoading(false)
             setDisabled(false)
             setHabitOpen(false)
@@ -80,7 +80,7 @@ const HabitForm = ({habitOpen, setHabitOpen}) => {
                     </div>
                 </div>
                 <span>
-                    <button onClick={handleHabitBtnCancel}>Cancelar</button>
+                    <button type="button" onClick={handleHabitBtnCancel}>Cancelar</button>
                     <button type="submit">Salvar</button>
                 </span>
             </FormStyle>

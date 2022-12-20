@@ -41,7 +41,3 @@ export const MyHabits = styled.div`
         border: none;
     }
 `
-
-export const Habits = styled.div`
-
-`
