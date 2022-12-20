@@ -7,11 +7,12 @@ import RegisterPage from './components/pages/RegisterPage/RegisterPage.jsx';
 import TodayPage from './components/pages/TodayPage/TodayPage.jsx';
 import HabitsPage from './components/pages/HabitsPage/HabitsPage.jsx';
 import HistoryPage from './components/pages/HistoryPage/HistoryPage.jsx';
+import ProgressBarContext from './components/Contexts/ProgressBarContext.jsx';
 
 function App() {
   const [userInfoContext, setUserInfoContext] = useState({})
   const [selectedDaysArray, setSelectedDaysArray] = useState([])
-
+  const [progressBar, setProgressBar] = useState(0)
   // useEffect(() => {
   //   const user = localStorage.getItem("user")
   //   console.log(user, user !== {})
@@ -23,15 +24,17 @@ function App() {
   return (
     <BrowserRouter>
         <UserInfoContext.Provider value={{userInfoContext, setUserInfoContext}}>
-          <SelectedDaysContext.Provider value={{selectedDaysArray, setSelectedDaysArray}}>
-              <Routes>
-                <Route path='/' element={<LoginPage />}/>
-                <Route path='/cadastro' element={<RegisterPage/>}/>
-                <Route path='/habitos' element={<HabitsPage />}/>
-                <Route path='/hoje' element={<TodayPage />}/>
-                <Route path='/historico' element={<HistoryPage />}/>
-              </Routes>
-          </SelectedDaysContext.Provider>
+          <ProgressBarContext.Provider value={{progressBar, setProgressBar}}>
+            <SelectedDaysContext.Provider value={{selectedDaysArray, setSelectedDaysArray}}>
+                <Routes>
+                  <Route path='/' element={<LoginPage />}/>
+                  <Route path='/cadastro' element={<RegisterPage/>}/>
+                  <Route path='/habitos' element={<HabitsPage />}/>
+                  <Route path='/hoje' element={<TodayPage />}/>
+                  <Route path='/historico' element={<HistoryPage />}/>
+                </Routes>
+            </SelectedDaysContext.Provider>
+          </ProgressBarContext.Provider>
         </UserInfoContext.Provider>
     </BrowserRouter>
   );

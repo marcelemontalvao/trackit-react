@@ -3,7 +3,7 @@ import { FooterStyles, TodayDiv } from "./FooterStyles.js"
 import { CircularProgressbar } from 'react-circular-progressbar';
 
 
-const Footer = () => {
+const Footer = ({progressBar}) => {
     return (
         <FooterStyles>
             <div className="footerContainer">
@@ -13,7 +13,7 @@ const Footer = () => {
                 <Link to="/hoje">
                     <TodayDiv>
                         <CircularProgressbar
-                            value={66} 
+                            value={progressBar} 
                             text="Hoje"
                             background
                             backgroundPadding={6}

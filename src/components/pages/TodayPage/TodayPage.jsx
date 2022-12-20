@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import Footer from "../../Footer/Footer";
 import Header from "../../Header/Header";
@@ -6,6 +6,7 @@ import { TodayPageStyle, DayHabit, TitleTodayPage } from "./TodayPageStyles";
 import { BsCheckSquareFill } from "react-icons/bs"
 import dayjs from "dayjs";
 import "dayjs/locale/pt-br";
+import ProgressBarContext from "../../Contexts/ProgressBarContext";
 
 const TodayPage = () => {
     const token = JSON.parse(localStorage.getItem("user")).token 
@@ -13,6 +14,8 @@ const TodayPage = () => {
     const today = dayjs().locale("pt-br").format("dddd, DD/MM");
     const [check, setCheck] = useState(false)
     const [reload, setReload] = useState(false)
+    const {progressBar, setProgressBar} = useContext(ProgressBarContext)
+    const [count, setCount] = useState(0)
 
     const toggleCheck = (habit) => {
         if(check === true) {
@@ -24,6 +27,8 @@ const TodayPage = () => {
                 console.log(response)
                 setCheck(false)
                 setReload(!reload)
+                setCount(count--)
+                setProgressBar((count/todayHabits.length) * 100)
             }).catch((error) => {
                 alert(error)
             })
@@ -36,11 +41,14 @@ const TodayPage = () => {
                 console.log(response)
                 setCheck(true)
                 setReload(!reload)
+                setCount(count++)
+                setProgressBar((count/todayHabits.length) * 100)
             }).catch((error) => {
                 alert(error)
             })
         }
     }
+    
 
     useEffect(()=> {
         axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/today", {
@@ -78,7 +86,7 @@ const TodayPage = () => {
                     </DayHabit>
                 )}
             </TodayPageStyle>
-            <Footer/>
+            <Footer progressBar={progressBar}/>
         </>
     )
 }
