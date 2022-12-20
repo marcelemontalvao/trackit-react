@@ -7,11 +7,11 @@ const Footer = ({progressBar}) => {
     return (
         <FooterStyles data-test="menu">
             <div className="footerContainer">
-                <Link to="/habitos">
-                    <span data-test="habit-link">Hábitos</span>
+                <Link to="/habitos"  data-test="habit-link">
+                    <span>Hábitos</span>
                 </Link>
-                <Link to="/hoje">
-                    <TodayDiv data-test="today-link">
+                <Link to="/hoje" data-test="today-link">
+                    <TodayDiv>
                         <CircularProgressbar
                             value={progressBar} 
                             text="Hoje"
@@ -32,8 +32,8 @@ const Footer = ({progressBar}) => {
                         />
                     </TodayDiv>
                 </Link>
-                <Link to="/historico">
-                    <span data-test="history-link">Histórico</span>
+                <Link to="/historico" data-test="history-link">
+                    <span>Histórico</span>
                 </Link>
             </div>
         </FooterStyles>

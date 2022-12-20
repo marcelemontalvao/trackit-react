@@ -33,7 +33,7 @@ const HabitsPage = () => {
             <HabitsPageStyle>
                 <MyHabits>
                     <span>Meus hábitos</span>
-                    <button onClick={handleHabitForm}>+</button>
+                    <button onClick={handleHabitForm} data-test="habit-create-btn">+</button>
                 </MyHabits>
                 {habitOpen ? <HabitForm habitOpen={habitOpen} setHabitOpen={setHabitOpen} /> : ""}
                 {habits.length !== 0 ? habits.map((habit, index) => <Habit habit={habit} key={index} habits={habits} setHabits={setHabits}/>) : <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>}
