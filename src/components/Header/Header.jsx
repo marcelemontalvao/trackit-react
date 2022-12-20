@@ -5,7 +5,7 @@ import {HeaderStyles} from "./HeaderStyles.js"
 const Header = () => {
     const {userInfoContext} = useContext(UserInfoContext)
     return (
-        <HeaderStyles>
+        <HeaderStyles data-test="header">
             <div>
                 <span>TrackIt</span>
                 <img src={userInfoContext.userInfo.image} alt="" />

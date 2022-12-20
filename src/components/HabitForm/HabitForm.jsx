@@ -46,16 +46,16 @@ const HabitForm = ({habitOpen, setHabitOpen}) => {
 
     if(loading) {
         return (
-            <FormStyle onSubmit={formSubmit}>
+            <FormStyle onSubmit={formSubmit} data-test="habit-create-container">
                 <div>
-                    <input type="text" placeholder="nome do hábito" onChange={(e) => setName(e.target.value)} disabled={disabled}/>
+                    <input type="text" placeholder="nome do hábito" onChange={(e) => setName(e.target.value)} disabled={disabled} data-test="habit-name-input"/>
                     <div>
-                        {days.map((btn, index) => <DayButton id={index} text={btn} selectedDaysArray={selectedDaysArray} setSelectedDaysArray={setSelectedDaysArray} key={index} disabled={disabled}/>)}
+                        {days.map((btn, index) => <DayButton  data-test="habit-day" id={index} text={btn} selectedDaysArray={selectedDaysArray} setSelectedDaysArray={setSelectedDaysArray} key={index} disabled={disabled}/>)}
                     </div>
                 </div>
                 <span>
-                    <button disabled={disabled}>Cancelar</button>
-                    <button type="submit" disabled={disabled}> 
+                    <button disabled={disabled} data-test="habit-create-cancel-btn">Cancelar</button>
+                    <button type="submit" disabled={disabled} data-test="habit-create-save-btn"> 
                         <ThreeDots 
                             height="60" 
                             width="60" 
@@ -72,16 +72,16 @@ const HabitForm = ({habitOpen, setHabitOpen}) => {
         )
     } else {
         return (
-            <FormStyle onSubmit={formSubmit}>
+            <FormStyle onSubmit={formSubmit} data-test="habit-create-container">
                 <div>
-                    <input type="text" placeholder="nome do hábito" onChange={(e) => setName(e.target.value)} />
+                    <input type="text" placeholder="nome do hábito" onChange={(e) => setName(e.target.value)} data-test="habit-name-input"/>
                     <div>
-                        {days.map((btn, index) => <DayButton id={index} text={btn} selectedDaysArray={selectedDaysArray} setSelectedDaysArray={setSelectedDaysArray} key={index}/>)}
+                        {days.map((btn, index) => <DayButton data-test="habit-day" id={index} text={btn} selectedDaysArray={selectedDaysArray} setSelectedDaysArray={setSelectedDaysArray} key={index}/>)}
                     </div>
                 </div>
                 <span>
-                    <button type="button" onClick={handleHabitBtnCancel}>Cancelar</button>
-                    <button type="submit">Salvar</button>
+                    <button type="button" onClick={handleHabitBtnCancel} data-test="habit-create-cancel-btn">Cancelar</button>
+                    <button type="submit" data-test="habit-create-save-btn">Salvar</button>
                 </span>
             </FormStyle>
         )

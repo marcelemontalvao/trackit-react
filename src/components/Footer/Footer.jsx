@@ -5,13 +5,13 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 
 const Footer = ({progressBar}) => {
     return (
-        <FooterStyles>
+        <FooterStyles data-test="menu">
             <div className="footerContainer">
                 <Link to="/habitos">
-                    <span>Hábitos</span>
+                    <span data-test="habit-link">Hábitos</span>
                 </Link>
                 <Link to="/hoje">
-                    <TodayDiv>
+                    <TodayDiv data-test="today-link">
                         <CircularProgressbar
                             value={progressBar} 
                             text="Hoje"
@@ -33,7 +33,7 @@ const Footer = ({progressBar}) => {
                     </TodayDiv>
                 </Link>
                 <Link to="/historico">
-                    <span>Histórico</span>
+                    <span data-test="history-link">Histórico</span>
                 </Link>
             </div>
         </FooterStyles>

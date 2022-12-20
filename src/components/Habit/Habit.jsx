@@ -23,13 +23,13 @@ const Habit = ({habit, habits, setHabits}) => {
     }
 
     return (
-        <HabitStyle>
+        <HabitStyle data-test="habit-container">
             <div>
-                <span>{habit.name}</span>
-                <IoTrashOutline onClick={deleteHabit}/>
+                <span data-test="habit-name">{habit.name}</span>
+                <IoTrashOutline onClick={deleteHabit} data-test="habit-delete-btn"/>
             </div>
             <div>
-                {week.map((day, index)=> <button key={index} className={habit.days.includes(index) ? "selected" : "notSelected"}>{day}</button> 
+                {week.map((day, index)=> <button  data-test="habit-day" key={index} className={habit.days.includes(index) ? "selected" : "notSelected"}>{day}</button> 
                 )}
             </div>
         </HabitStyle>

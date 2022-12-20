@@ -62,11 +62,11 @@ const RegisterPage = () => {
             <RegisterPageContainer>
                 <img src={logoTrackit} alt="Logo Trackit" />
                 <FormRegisterPage method="POST" onSubmit={(e) => handleInputs(e)}>
-                    <input onChange={(e) => setEmail(e.target.value)} type="email" name="email" id="email" placeholder="email" required disabled={disabled} />
-                    <input onChange={(e) => setPassword(e.target.value)} type="password" name="password" id="password" placeholder="senha" required disabled={disabled} />
-                    <input onChange={(e) => setName(e.target.value)}type="text" name="name" id="name" placeholder="nome" required disabled={disabled}/>
-                    <input onChange={(e) => setImage(e.target.value)} type="text" name="photo" id="photo" placeholder="foto" required disabled={disabled} />
-                    <button type="submit" disabled={disabled}>
+                    <input onChange={(e) => setEmail(e.target.value)} type="email" name="email" id="email" placeholder="email" required disabled={disabled} data-test="email-input" />
+                    <input onChange={(e) => setPassword(e.target.value)} type="password" name="password" id="password" placeholder="senha" required disabled={disabled} data-test="password-input" />
+                    <input onChange={(e) => setName(e.target.value)}type="text" name="name" id="name" placeholder="nome" required disabled={disabled} data-test="user-name-input"/>
+                    <input onChange={(e) => setImage(e.target.value)} type="text" name="photo" id="photo" placeholder="foto" required disabled={disabled} data-test="user-image-input" />
+                    <button type="submit" disabled={disabled} data-test="signup-btn">
                         <ThreeDots 
                             height="60" 
                             width="60" 
@@ -80,7 +80,7 @@ const RegisterPage = () => {
                     </button>
                 </FormRegisterPage>
                 <Link to={"/"}>
-                    <a>Já tem uma conta? Faça login!</a>
+                    <a data-test="login-link">Já tem uma conta? Faça login!</a>
                 </Link>
             </RegisterPageContainer>
         )
@@ -89,14 +89,14 @@ const RegisterPage = () => {
             <RegisterPageContainer>
                 <img src={logoTrackit} alt="Logo Trackit" />
                 <FormRegisterPage method="POST" onSubmit={(e) => handleInputs(e)}>
-                    <input onChange={(e) => setEmail(e.target.value)} type="email" name="email" id="email" placeholder="email" required />
-                    <input onChange={(e) => setPassword(e.target.value)} type="password" name="password" id="password" placeholder="senha" required />
-                    <input onChange={(e) => setName(e.target.value)}type="text" name="name" id="name" placeholder="nome" required />
-                    <input onChange={(e) => setImage(e.target.value)}type="text" name="photo" id="photo" placeholder="foto" required />
-                    <button type="submit" disabled={disabled}>Cadastrar</button>
+                    <input onChange={(e) => setEmail(e.target.value)} type="email" name="email" id="email" placeholder="email" required data-test="email-input" />
+                    <input onChange={(e) => setPassword(e.target.value)} type="password" name="password" id="password" placeholder="senha" required data-test="password-input" />
+                    <input onChange={(e) => setName(e.target.value)}type="text" name="name" id="name" placeholder="nome" required data-test="user-name-input" />
+                    <input onChange={(e) => setImage(e.target.value)}type="text" name="photo" id="photo" placeholder="foto" required data-test="user-image-input" />
+                    <button type="submit" disabled={disabled} data-test="signup-btn">Cadastrar</button>
                 </FormRegisterPage>
                 <Link to={"/"}>
-                    <a>Já tem uma conta? Faça login!</a>
+                    <a data-test="login-link">Já tem uma conta? Faça login!</a>
                 </Link>
             </RegisterPageContainer>
         )

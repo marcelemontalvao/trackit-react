@@ -70,12 +70,12 @@ const LoginPage = () => {
             <LoginPageContainer>
                 <img src={logoTrackit} alt="Logo Trackit" />
                 <FormLoginPage method="POST" onSubmit={(e) => handleInputs(e)}>
-                    <input onChange={(e) => setEmail(e.target.value)} type="email" name="email" id="email" placeholder="email" required />
-                    <input onChange={(e) => setPassword(e.target.value)} type="password" name="password" id="password" placeholder="senha" required />
-                    <button type="submit" disabled={disabled}>Entrar</button>
+                    <input onChange={(e) => setEmail(e.target.value)} type="email" name="email" id="email" placeholder="email" required  data-test="email-input" />
+                    <input onChange={(e) => setPassword(e.target.value)} type="password" name="password" id="password" placeholder="senha" required data-test="password-input" />
+                    <button type="submit" disabled={disabled} data-test="login-btn">Entrar</button>
                 </FormLoginPage>
                 <Link to="/cadastro">
-                    <p>Não tem uma conta? Cadastre-se!</p>
+                    <p data-test="signup-link">Não tem uma conta? Cadastre-se!</p>
                 </Link>
             </LoginPageContainer>
         )

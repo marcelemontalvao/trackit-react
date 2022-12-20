@@ -70,17 +70,17 @@ const TodayPage = () => {
             <Header/>
             <TodayPageStyle>
                 <TitleTodayPage>
-                    <h1>{today}</h1>
-                    {progressBar.length ? <span>{progressBar}% dos hábitos concluídos</span> : <p>Nenhum hábito concluído ainda</p>}
+                    <h1 data-test="today">{today}</h1>
+                    {progressBar.length ? <span data-test="today-counter">{progressBar}% dos hábitos concluídos</span> : <p data-test="today-counter">Nenhum hábito concluído ainda</p>}
                 </TitleTodayPage>
                 {todayHabits.map((habit, index) => 
-                    <DayHabit habitDone={habit.done} sequence={habit.currentSequence == habit.highestSequence} key={index}>
+                    <DayHabit data-test="today-habit-container" habitDone={habit.done} sequence={habit.currentSequence == habit.highestSequence} key={index}>
                         <div>
-                            <span>{habit.name}</span>
-                            <span><span>Sequência atual:</span> <span>{habit.currentSequence} dias</span> </span> 
-                            <span><span>Seu recorde:</span> <span>{habit.highestSequence} dias</span></span>
+                            <span data-test="today-habit-name">{habit.name}</span>
+                            <span data-test="today-habit-sequence"><span>Sequência atual:</span> <span>{habit.currentSequence} dias</span> </span> 
+                            <span data-test="today-habit-record"><span>Seu recorde:</span> <span>{habit.highestSequence} dias</span></span>
                         </div>
-                        <BsCheckSquareFill onClick={() => toggleCheck(habit)} color={habit.done ? "#8FC549" : "#F2F2F2"}/>
+                        <BsCheckSquareFill onClick={() => toggleCheck(habit)} color={habit.done ? "#8FC549" : "#F2F2F2"} data-test="today-habit-check-btn"/>
                     </DayHabit>
                 )}
             </TodayPageStyle>
