@@ -25,7 +25,7 @@ const LoginPage = () => {
                 if(response.status === 200) {
                     setLoading(false)
                     setDisabled(false)
-                    navigate("/habitos")
+                    navigate("/hoje")
                 }
                 setUserInfoContext({
                     userInfo: response.data
