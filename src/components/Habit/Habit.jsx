@@ -21,7 +21,7 @@ const Habit = ({habit, habits, setHabits}) => {
             })
         }
     }
-    // console.log(habit.days)
+
     return (
         <HabitStyle>
             <div>

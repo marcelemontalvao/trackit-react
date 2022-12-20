@@ -9,11 +9,19 @@ export const HabitStyle = styled.div`
     flex-direction: column;
     align-items: center;
     
-    div {
+    & div:nth-child(1) {
         width: 90%;
         display: flex;
         justify-content: space-between;
         margin-top: 13px;
+    }
+
+    & div:nth-child(2) {
+        width: 90%;
+        display: flex;
+        justify-content: flex-start;
+        gap: 4px;
+        margin-top: 9px;
     }
 
     span {

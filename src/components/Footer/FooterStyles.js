@@ -42,12 +42,5 @@ export const FooterStyles = styled.footer`
 export const TodayDiv = styled.div`
     width: 100px;
     margin-bottom: 40px;
-    /* height: 91px;
-    background-color: #52B6FF;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    */
 `
 
